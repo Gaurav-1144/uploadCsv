@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>View CSV Data</title>
+</head>
+<body>
+  <div class="container mt-2">
+    <div class="row">
+        <div class="col-md-12" >
+            <div class="card overflow-auto">
+              <div class="card-header">Data from <%= filename %></div>
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                    <% const headers = Object.keys(rows[0]); %>
+                    <tr>
+                      <% headers.forEach(header => { %>
+                        <th><%= header %></th>
+                      <% }); %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% rows.forEach(row => { %>
+                      <tr>
+                        <% headers.forEach(header => { %>
+                          <td><%= row[header] %></td>
+                        <% }); %>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+           
+        </div>
+    </div>
+  </div>
+</body>
+</html>
